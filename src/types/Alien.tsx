@@ -1,0 +1,6 @@
+export interface Alien {
+  id?: number;
+  name: string;
+  userName: string;
+  email: string;
+}

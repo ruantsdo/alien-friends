@@ -1,8 +1,10 @@
-import { Alien } from "../../types";
-import AlienCard from "../alienCard";
+// Types
+import { AlienData } from "../../types";
+// Components
+import { AlienCard } from "../";
 
 interface CardListProps {
-  filteredAliens: Alien[];
+  filteredAliens: AlienData[];
 }
 
 const CardList = ({ filteredAliens }: CardListProps) => {
@@ -10,10 +12,8 @@ const CardList = ({ filteredAliens }: CardListProps) => {
     <div>
       {filteredAliens.map((alien) => (
         <AlienCard
-          key={alien.id}
-          id={alien.id}
+          key={alien.login.uuid}
           name={alien.name}
-          userName={alien.userName}
           email={alien.email}
         />
       ))}

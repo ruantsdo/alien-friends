@@ -34,18 +34,26 @@ function App() {
   };
 
   const filteredAliens = useMemo(() => {
-    const lowercasedSearch = searchValue.toLowerCase();
+    const searchTerms = searchValue
+      .toLowerCase()
+      .split(" ")
+      .filter((term) => term);
 
-    if (!isGettingData || !aliensData.length) {
-      return aliensData.filter(
-        (alien) =>
-          alien.name.first.toLowerCase().includes(lowercasedSearch) ||
-          alien.name.title.toLowerCase().includes(lowercasedSearch) ||
-          alien.email.toLowerCase().includes(lowercasedSearch)
-      );
-    } else {
+    if (isGettingData || !aliensData.length) {
       return [];
     }
+
+    return aliensData.filter((alien) => {
+      const searchableFields = [
+        alien.name.first.toLowerCase(),
+        alien.name.title.toLowerCase(),
+        alien.email.toLowerCase(),
+      ];
+
+      return searchTerms.every((term) =>
+        searchableFields.some((field) => field.includes(term))
+      );
+    });
   }, [searchValue, isGettingData, aliensData]);
 
   useEffect(() => {

@@ -1,3 +1,3 @@
-import { Alien } from "./Alien";
+import { AlienData, AlienName, AlienLoginData } from "./AlienData";
 
-export { Alien };
+export { AlienData, AlienName, AlienLoginData };

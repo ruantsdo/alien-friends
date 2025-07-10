@@ -2,6 +2,8 @@
 import "tachyons";
 // Types
 import { AlienName } from "../../types";
+// Styles
+import "./styles.css";
 
 interface Props {
   name: AlienName;
@@ -10,7 +12,7 @@ interface Props {
 
 const AlienCard = ({ name, email }: Props) => {
   return (
-    <div className="bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5">
+    <div className="bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5 hover-effect">
       <img
         alt={`${name.first} profile pic`}
         src={`https://robohash.org/${

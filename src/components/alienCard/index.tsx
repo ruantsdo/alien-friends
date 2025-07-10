@@ -1,16 +1,24 @@
+//Tachyons
 import "tachyons";
+// Types
+import { AlienName } from "../../types";
 
-import { Alien } from "../../types";
+interface Props {
+  name: AlienName;
+  email: string;
+}
 
-const AlienCard = ({ name, userName, email }: Alien) => {
+const AlienCard = ({ name, email }: Props) => {
   return (
     <div className="bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5">
       <img
-        alt={`${userName} profile pic`}
-        src={`https://robohash.org/${name}?size=200x200&set=set2`}
+        alt={`${name.first} profile pic`}
+        src={`https://robohash.org/${
+          name.first + name.last
+        }?size=200x200&set=set2`}
       />
       <div>
-        <p>{userName}</p>
+        <p>{name.title + " " + name.first}</p>
         <p>{email}</p>
       </div>
     </div>

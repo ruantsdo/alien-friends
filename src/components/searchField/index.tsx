@@ -1,3 +1,4 @@
+// Styles
 import "./styles.css";
 
 interface SearchFieldProps {

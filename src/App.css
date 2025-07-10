@@ -1,9 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Righteous&family=Syne+Mono&display=swap");
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   background: #4776e6;
   background: -webkit-linear-gradient(0deg, #4776e6 0%, #8e54e9 100%);
   background: linear-gradient(0deg, #4776e6 0%, #8e54e9 100%);
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 #title {
@@ -18,6 +26,37 @@ body {
   font-size: 40px;
 }
 
+.stars,
+.twinkling,
+.clouds {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.stars {
+  z-index: 0;
+  background: #000 url("https://i.imgur.com/YKY28eT.png") repeat top center;
+}
+
+.twinkling {
+  z-index: 1;
+  background: transparent url("https://i.imgur.com/XYMF4ca.png") repeat top
+    center;
+  animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+  z-index: 2;
+  background: transparent url("https://i.imgur.com/mHbScrQ.png") repeat top
+    center;
+  animation: move-clouds-back 200s linear infinite;
+}
+
 @keyframes neonAnim {
   from {
     text-shadow: 0 0 5px rgba(0, 255, 170, 1), 0 0 10px rgba(0, 255, 170, 0.9),
@@ -26,5 +65,23 @@ body {
   to {
     text-shadow: 0 0 10px rgba(0, 255, 170, 1), 0 0 20px rgba(0, 255, 170, 0.9),
       0 0 30px rgba(0, 255, 170, 0.8), 0 0 50px rgba(0, 255, 170, 0.7);
+  }
+}
+
+@keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+@keyframes move-clouds-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 0;
   }
 }

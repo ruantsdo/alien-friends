@@ -61,22 +61,24 @@ function App() {
   }, []);
 
   return (
-    <div className="tc stars">
-      <div className="twinkling">
-        <div className="clouds">
-          <h1 id="title">AlienFriends</h1>
-          <SearchField
-            searchValue={searchValue}
-            onSearchValueChange={onSearchValueChange}
-          />
-          {isGettingData ? (
-            <p>{screenMessage}</p>
-          ) : (
-            <CardList filteredAliens={filteredAliens} />
-          )}
-        </div>
-      </div>
-    </div>
+    <div className="app-container">
+  <div className="stars"></div>
+  <div className="twinkling"></div>
+  <div className="clouds"></div>
+
+  <main className="main-content">
+    <h1 id="title">AlienFriends</h1>
+    <SearchField
+      searchValue={searchValue}
+      onSearchValueChange={onSearchValueChange}
+    />
+    {isGettingData ? (
+      <p>{screenMessage}</p>
+    ) : (
+      <CardList filteredAliens={filteredAliens} />
+    )}
+  </main>
+</div>
   );
 }
 
